@@ -1,0 +1,218 @@
+@import './styles/animations.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Web3 Portfolio Dashboard - Global Styles
+   Author: Daniel Works
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #020617;
+  color: #f8fafc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for Web3 theme */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00d4aa, #6366f1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00f5d4, #818cf8);
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 212, 170, 0.3);
+  color: #ffffff;
+}
+
+/* Section Container */
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Section Title */
+.section-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #00d4aa, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+/* Section Subtitle */
+.section-subtitle {
+  color: #94a3b8;
+  text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* Glass Card Effect */
+.glass-card {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Button */
+.btn-gradient {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: white;
+  overflow: hidden;
+  transition: all 0.3s;
+  background: linear-gradient(135deg, #00d4aa, #6366f1);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.4), 0 0 40px rgba(99, 102, 241, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+/* Outline Button */
+.btn-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: #00d4aa;
+  border: 2px solid rgba(0, 212, 170, 0.5);
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: transparent;
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  border-color: #00d4aa;
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Glow Effects */
+.glow {
+  box-shadow: 0 0 15px rgba(0, 212, 170, 0.3), 0 0 30px rgba(99, 102, 241, 0.1);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(0, 212, 170, 0.5), 0 0 20px rgba(0, 212, 170, 0.3);
+}
+
+/* Grid Background Pattern */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Animation Delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #00d4aa, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hide Scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
