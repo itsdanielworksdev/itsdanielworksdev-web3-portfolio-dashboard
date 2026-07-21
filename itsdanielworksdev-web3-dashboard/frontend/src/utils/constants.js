@@ -17,7 +17,7 @@ export const socialLinks = {
   github: 'https://github.com/itsdanielworksdev',
   twitter: 'https://twitter.com/itsdanielworks',
   linkedin: 'https://linkedin.com/in/itsdanielworks',
-  email: 'daniel@itsdanielworks.dev',
+  email: 'itsdanielworks.dev@gmail.com',
 }
 
 // ===== Skills Data Organized by Category =====
@@ -185,7 +185,7 @@ export const heroData = {
 
 // ===== Contact Information =====
 export const contactInfo = {
-  email: 'daniel@itsdanielworks.dev',
+  email: 'itsdanielworks.dev@gmail.com',
   location: 'Remote / Worldwide',
   availability: 'Available for freelance, bounties, and contributor roles',
 }

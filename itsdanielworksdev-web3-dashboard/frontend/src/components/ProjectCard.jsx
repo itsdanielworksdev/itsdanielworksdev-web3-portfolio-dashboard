@@ -35,6 +35,7 @@ function ProjectCard({ project, index }) {
             >
               <FaGithub className="text-lg" />
             </a>
+            {project.live && project.live !== '#' && (
             <a
               href={project.live}
               target="_blank"
@@ -44,6 +45,7 @@ function ProjectCard({ project, index }) {
             >
               <FaExternalLinkAlt className="text-lg" />
             </a>
+            )}
           </div>
         </div>
 
@@ -87,15 +89,21 @@ function ProjectCard({ project, index }) {
             <FaGithub />
             GitHub
           </a>
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg btn-gradient text-sm"
-          >
-            <FaExternalLinkAlt />
-            Live Demo
-          </a>
+          {project.live && project.live !== '#' ? (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg btn-gradient text-sm"
+            >
+              <FaExternalLinkAlt />
+              Live Demo
+            </a>
+          ) : (
+            <span className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-dark-700/30 border border-dark-700/40 text-dark-500 text-sm cursor-not-allowed select-none">
+              🚧 Coming Soon
+            </span>
+          )}
         </div>
       </div>
     </motion.div>

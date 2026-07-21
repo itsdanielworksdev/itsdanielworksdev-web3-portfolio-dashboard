@@ -5,6 +5,9 @@ import { HiMenu, HiX } from 'react-icons/hi'
 import { FaGithub } from 'react-icons/fa'
 import { navLinks, resumeLink } from '../utils/constants'
 import WalletConnect from './WalletConnect'
+import useActiveSection from '../hooks/useActiveSection'
+
+const SECTION_IDS = ['stats', 'skills', 'contact']
 
 /**
  * Navbar Component
@@ -15,6 +18,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const activeSection = useActiveSection(SECTION_IDS)
 
   // Track scroll position for navbar background effect
   useEffect(() => {
@@ -39,10 +43,11 @@ function Navbar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Check if a nav link is the current active route
+  // Check if a nav link is the current active route or active section
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/'
-    if (path.startsWith('/#')) return false
+    if (path === '/#skills')  return location.pathname === '/' && activeSection === 'skills'
+    if (path === '/#contact') return location.pathname === '/' && activeSection === 'contact'
     return location.pathname.startsWith(path)
   }
 
@@ -177,6 +182,11 @@ function Navbar() {
                 <FaGithub className="text-lg" />
                 <span>GitHub</span>
               </a>
+
+              {/* Mobile Wallet Connect */}
+              <div className="px-4 py-2">
+                <WalletConnect />
+              </div>
 
               {/* Mobile Resume Button */}
               <a

@@ -27,27 +27,40 @@ function Contact() {
 
   /**
    * Handle form submission
-   * Replace the URL with your own Formspree endpoint
+   * Uses mailto as a reliable fallback — replace the fetch URL
+   * with your real Formspree endpoint: https://formspree.io/f/YOUR_ID
    */
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
 
+    const FORMSPREE_URL = 'https://formspree.io/f/your-form-id'
+    const isPlaceholder = FORMSPREE_URL.includes('your-form-id')
+
+    if (isPlaceholder) {
+      // Fallback: open default mail client
+      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`)
+      const body    = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`)
+      window.open(`mailto:${contactInfo.email}?subject=${subject}&body=${body}`)
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 5000)
+      return
+    }
+
     try {
-      const response = await fetch('https://formspree.io/f/your-form-id', {
+      const response = await fetch(FORMSPREE_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-
       if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', message: '' })
         setTimeout(() => setStatus('idle'), 5000)
       } else {
         setStatus('error')
+        setTimeout(() => setStatus('idle'), 3000)
       }
     } catch {
       setStatus('error')
